@@ -1,5 +1,7 @@
 package com.yiwa.learn;
 
+import static java.lang.Thread.sleep;
+
 public class AccountOperator implements Runnable {
 
     private Account account;
@@ -10,10 +12,15 @@ public class AccountOperator implements Runnable {
 
     @Override
     public void run() {
-//        synchronized (account) {
+        try {
+            sleep(10000);
+          synchronized (account) {
             account.deposit(500);
             account.withdraw(500);
             System.out.println(Thread.currentThread().getName() + ": " + account.getAmount());
-//        }
+        }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }

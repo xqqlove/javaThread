@@ -1,4 +1,7 @@
 package com.yiwa.learn;
+
+import static java.lang.Thread.sleep;
+
 //https://blog.csdn.net/luoweifu/article/details/46613015
 //https://blog.csdn.net/luoweifu/article/details/46595285
 //https://blog.csdn.net/u012403290/article/details/64910926
@@ -44,11 +47,11 @@ public class ThreadWaitAndSleep {
         ThreadWAS pc = new ThreadWAS("C", b, c);
 
         new Thread(pa).start();
-        Thread.sleep(100);
+        sleep(1000);
         new Thread(pb).start();
-        Thread.sleep(100);
+        sleep(1000);
         new Thread(pc).start();
-        Thread.sleep(100);
+        sleep(1000);
 
     }
 }
