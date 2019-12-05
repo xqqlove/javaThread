@@ -20,6 +20,7 @@ public class InterruptBlock {
                     e.printStackTrace();
                     System.out.println(Thread.currentThread().getName()+"("+this.getState()+"");
                 }
+                System.out.println("dabuda");
 
             }
         }
