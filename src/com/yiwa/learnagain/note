@@ -38,5 +38,31 @@ synchronized 和lock的异同
   Lock需要手动的启动同步lock() ,同时结束同步也需要手动实现unlock()
 
 
+线程通信的例子：使用两个线程交替打印1-100
+涉及到的三个方法：
+wait(),线程阻塞 释放锁
+notify() ，唤醒wait()的线程 多个的话唤醒优先级高的
+notifyAll()，唤醒所有wait()线程
+wait() notify() notifyAll()的使用，都得在同步代码块或者同步方法中
+wait() notify() notifyAll()的调用者 必须为同步代码块或者同步方法中的同步监视器
 
+
+sleep() 和 wait() 的异同？
+ 1相同点：都可以阻塞当前线程
+ 2不同点：1）两个方法声明的位置不同：Thread类中声明sleep(),Object类中声明wait()
+          2) sleep()可以在任何场景下调用，wait()必须在同步代码块或同步方法中使用
+          3）若两个方法都在同步代码块或者同步方法中使用，sleep()不会释放锁，wait()会释放锁
+
+
+ 多线程实现：
+     实现Runnable接口
+     继承Thread
+     实现Callable接口
+     线程池
+
+ 如何理解实现Callable接口的方式创建多线程比实现Runnable接口创建多线程方式强大？
+ 1.call()可以有返回值
+ 2.call()可以抛出异常，被外面操作捕获，获取异常信息
+ 3.Callable是支持泛型的
+ 
 
